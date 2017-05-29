@@ -1,0 +1,21 @@
+alias grepdiff='history | grep diff'
+
+fdiffsummary() {
+    # usage: diffsum [s3_bucket_name]
+    diff summary_file.txt ../reprocessing_all/summary_files/${1}.summary_file.txt
+}
+alias difsum=fdiffsummary
+
+fdiffreadme() {
+    # usage: diffread [s3_bucket_name]
+    diff README.txt ../reprocessing_all/readmes/${1}.readme.txt
+}
+alias difread=fdiffreadme
+
+fcp2mbit() {
+    # usage: cp2mbit [file] [s3_bucket]
+    # cp file from here to given S3 bucket
+    aws s3 cp $1 s3://mbit.storage.bucket1/${2}/
+}
+alias cp2mbit=fcp2mbit
+
